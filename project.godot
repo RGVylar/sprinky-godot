@@ -18,3 +18,4 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameNode="*res://scripts/Game.gd"
+Music="*res://scripts/Music.gd"

@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3 uid="uid://31v1rfdkn7ts"]
+
+[ext_resource type="Script" path="res://scenes/lobby.gd" id="1_ayhgg"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ayhgg")
+
+[node name="UI" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Lobby"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QRImage" type="TextureRect" parent="UI/VBoxContainer"]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="CodeLabel" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Status" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"GraphFrameTitleLabel"
+
+[node name="Players" type="ItemList" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Actions" type="HBoxContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="StartBtn" type="Button" parent="UI/VBoxContainer/Actions"]
+layout_mode = 2
+disabled = true
+text = "Iniciar Partida"
+
+[node name="ModeBox" type="HBoxContainer" parent="UI/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Mode" type="Label" parent="UI/VBoxContainer/ModeBox"]
+layout_mode = 2
+text = "Modo:"
+
+[node name="ModeBtn" type="CheckButton" parent="UI/VBoxContainer/ModeBox"]
+layout_mode = 2
+button_pressed = true
+text = "Auto"
+
+[node name="HSeparator" type="HSeparator" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="RefreshBtn" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "Refrescar"

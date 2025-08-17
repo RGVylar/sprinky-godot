@@ -8,6 +8,7 @@ var api: RoomApi
 const BASE_URL := "http://192.168.1.136:8080"
 
 func _ready():
+	Music.play_bgm(preload("res://assets/music/menu/menu.ogg"), 0.6)
 	api = RoomApi.new()
 	add_child(api)   
 	api.base_url = BASE_URL

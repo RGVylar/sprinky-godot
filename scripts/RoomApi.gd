@@ -34,6 +34,7 @@ func _request_json(method: String, path: String, payload: Variant = null, extra_
 	# res = [result, response_code, headers, body]
 	var result_status: int = res[0]
 	var code: int = res[1]
+	var resp_headers: PackedStringArray = res[2]
 	var raw_body: PackedByteArray = res[3]
 	var txt := raw_body.get_string_from_utf8()
 
@@ -41,6 +42,14 @@ func _request_json(method: String, path: String, payload: Variant = null, extra_
 
 	if result_status != HTTPRequest.RESULT_SUCCESS:
 		return {"ok": false, "code": code, "error": "request_failed", "raw": txt}
+		
+			# ----- detectar Content-Type -----
+	var content_type := ""
+	for h in resp_headers:
+		var s := str(h)
+		if s.to_lower().begins_with("content-type:"):
+			content_type = s.substr(13).strip_edges().to_lower()
+			break
 
 	var data: Dictionary = {}
 	if txt != "":
